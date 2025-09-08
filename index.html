@@ -12,21 +12,21 @@
     Lag en funksjon til som returnerer den endringen, uten å endre det som står fra før, bare legge til. -->
 
     <div id="mainDiv"> </div>
-    <button onclick="createAndShowHtml('green', 'Hallo verden', 30, 'dotted', 5)"> Test 1</button>
-    <button onclick="createAndShowHtml('gray', 'Hei på deg!', 20, 'solid', 1)"> Test 2</button>
-    <button onclick="createAndShowHtml('yellow', 'GET Academy', 10, 'dashed', 10)"> Test 3</button>
+    <button onclick="createAndShowHtml('green', 'Hallo verden', 30, 'dotted', 5, 'orange')"> Test 1</button>
+    <button onclick="createAndShowHtml('gray', 'Hei på deg!', 20, 'solid', 1, 'white')"> Test 2</button>
+    <button onclick="createAndShowHtml('yellow', 'GET Academy', 10, 'dashed', 10, 'blue')"> Test 3</button>
     <script>
 
        
 
-        function createAndShowHtml(color, text, fontSize, borderStyle, borderSize){
+        function createAndShowHtml(color, text, fontSize, borderStyle, borderSize, textColor){
             document.getElementById('mainDiv').innerHTML = `
-            <div ${createStyle(color, fontSize, borderStyle, borderSize)}>${text} </div>
+            <div ${createStyle(color, fontSize, borderStyle, borderSize, textColor)}>${text} </div>
             `;
         }
 
-        function createStyle(color, fontSize, borderStyle, borderSize){
-            return `style="${createBackgroundColor(color)}${createFontSize(fontSize)} ${createBorderStyle(borderStyle, borderSize)}"`
+        function createStyle(color, fontSize, borderStyle, borderSize, textColor){
+            return `style="${createBackgroundColor(color)}${createFontSize(fontSize)} ${createBorderStyle(borderStyle, borderSize)}${createTextcolor(textColor)})}"`
         }
         function createBackgroundColor(color){
             return `background-color: ${color};`;
@@ -35,10 +35,13 @@
             return `font-size: ${fontSize}px;`;
         }
         function createBorderStyle(borderStyle, borderSize){
-            return `border: black ${borderStyle} ${createBorderSize(borderSize)}`;
+            return `border: black ${borderStyle} ${createBorderSize(borderSize)};`;
         }
         function createBorderSize(borderSize){
             return `${borderSize}px;`
+        }
+        function createTextcolor(textColor){
+            return `color: ${textColor};`
         }
 
     </script>
